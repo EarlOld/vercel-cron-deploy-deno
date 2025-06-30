@@ -1,8 +1,8 @@
 {
   "name": "vercel-cron-deploy-deno",
   "tasks": {
-    "dev": "deno run --watch --allow-net --allow-env --unstable-cron main.ts",
-    "start": "deno run --unstable-cron --allow-net --allow-env --allow-read --allow-sys main.ts",
+    "dev": "deno run --watch --allow-net --allow-env main.ts",
+    "start": "deno run --allow-net --allow-env --allow-read --allow-sys main.ts",
     "deploy": "deployctl deploy --prod",
     "logs": "deployctl logs"
   },
