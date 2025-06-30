@@ -1,11 +1,20 @@
 {
+  "name": "vercel-cron-deploy-deno",
   "tasks": {
-    "dev": "deno run --watch --allow-net --allow-env main.ts",
-    "start": "deno run --unstable-kv --allow-net --allow-env --allow-read --allow-sys main.ts",
+    "dev": "deno run --watch --allow-net --allow-env --unstable-cron main.ts",
+    "start": "deno run --unstable-cron --allow-net --allow-env --allow-read --allow-sys main.ts",
     "deploy": "deployctl deploy --prod",
     "logs": "deployctl logs"
   },
   "imports": {
     "@std/assert": "jsr:@std/assert@1"
+  },
+  "deploy": {
+    "project": "3162f475-3f04-4343-8af8-fd0aab95a21e",
+    "exclude": [
+      "**/node_modules"
+    ],
+    "include": [],
+    "entrypoint": "main.ts"
   }
 }
