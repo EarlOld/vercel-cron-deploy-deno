@@ -1,0 +1,11 @@
+{
+  "tasks": {
+    "dev": "deno run --watch --allow-net --allow-env main.ts",
+    "start": "deno run --unstable-kv --allow-net --allow-env --allow-read --allow-sys main.ts",
+    "deploy": "deployctl deploy --prod",
+    "logs": "deployctl logs"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@1"
+  }
+}
