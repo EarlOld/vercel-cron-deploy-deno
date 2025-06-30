@@ -1,18 +1,14 @@
 const DEPLOY_URL = Deno.env.get("DEPLOY_URL");
 
-function main() {
-  Deno.cron("Vervel daily deploy message", "23 59 * * 2-6", async () => {
-    if (DEPLOY_URL) {
-      const response = await fetch(DEPLOY_URL);
-      if (!response.ok) {
-        console.error("Failed to send daily report:", response.statusText);
-      } else {
-        console.log("Daily report sent successfully.");
-      }
+Deno.cron("Vervel daily deploy message", "00 00 * * 2-6", async () => {
+  if (DEPLOY_URL) {
+    const response = await fetch(DEPLOY_URL);
+    if (!response.ok) {
+      console.error("Failed to send daily report:", response.statusText);
     } else {
-      console.error("DEPLOY_URL is not set.");
+      console.log("Daily report sent successfully.");
     }
-  });
-}
-
-main();
+  } else {
+    console.error("DEPLOY_URL is not set.");
+  }
+});
